@@ -1,0 +1,57 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.calc-body {
+	background: #454545;
+	width: 300px;
+	padding: 1rem;
+	border-radius: 5%;
+}
+
+h1 {
+	padding: 0;
+	margin: 0;
+	font-family: italic;
+	color: white;
+}
+
+h1::first-letter {
+	color: orange;
+	font-size: 150%;
+}
+
+.result {
+	background: #708090;
+	color: white;
+	width: 60%;
+	font-size: 2rem;
+	text-align: right;
+	padding: 0.5rem 1rem;
+}
+
+.btns {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+button {
+	width: 4rem;
+	height: 4rem;
+	font-size: 2rem;
+	border-radius: 50%;
+	margin: 0.5rem 0;
+	color: white;
+}
+
+.op {
+	background: orange;
+}
+
+.num {
+	background: #708090;
+}
