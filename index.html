@@ -13,7 +13,7 @@
 				<!-- input and clear button -->
 				<div class="btns">
 					<input class="result" type="text" name="" v-model="input" disabled/>
-					<button class="op" @click="clear">c</button>
+					<button class="op" @click="clear()">c</button>
 				</div>
 				<!-- buttons -->
 				<div class="btns">
@@ -37,7 +37,7 @@
 				<div class="btns">
 					<button class="num" @click="input += '0'">0</button>
 					<button class="num" @click="input += '.'">.</button>
-					<button class="op">=</button>
+					<button class="op" @click="calc()">=</button>
 					<button class="op" @click="input += '+'">+</button>
 				</div>
 			</div>
