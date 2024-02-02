@@ -17,28 +17,28 @@
 				</div>
 				<!-- buttons -->
 				<div class="btns">
-					<button class="num" @click="input += '7'">7</button>
-					<button class="num" @click="input += '8'">8</button>
-					<button class="num" @click="input += '9'">9</button>
-					<button class="op" @click="input += '/'">/</button>
+					<button class="num" @click="append('7')">7</button>
+					<button class="num" @click="append('8')">8</button>
+					<button class="num" @click="append('9')">9</button>
+					<button class="op" @click="append('/')">/</button>
 				</div>
 				<div class="btns">
-					<button class="num" @click="input += '4'">4</button>
-					<button class="num" @click="input += '5'">5</button>
-					<button class="num" @click="input += '6'">6</button>
-					<button class="op" @click="input += '*'">*</button>
+					<button class="num" @click="append('4')">4</button>
+					<button class="num" @click="append('5')">5</button>
+					<button class="num" @click="append('6')">6</button>
+					<button class="op" @click="append('*')">*</button>
 				</div>
 				<div class="btns">
-					<button class="num" @click="input += '1'">1</button>
-					<button class="num" @click="input += '2'">2</button>
-					<button class="num" @click="input += '3'">3</button>
-					<button class="op" @click="input += '-'">-</button>
+					<button class="num" @click="append('1')">1</button>
+					<button class="num" @click="append('2')">2</button>
+					<button class="num" @click="append('3')">3</button>
+					<button class="op" @click="append('-')">-</button>
 				</div>
 				<div class="btns">
-					<button class="num" @click="input += '0'">0</button>
-					<button class="num" @click="input += '.'">.</button>
+					<button class="num" @click="append('0')">0</button>
+					<button class="num" @click="append('.')">.</button>
 					<button class="op" @click="calc()">=</button>
-					<button class="op" @click="input += '+'">+</button>
+					<button class="op" @click="append('+')">+</button>
 				</div>
 			</div>
 		</div>

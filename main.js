@@ -2,14 +2,27 @@ var vm = new Vue({
 	el: "#app",
 	data: {
 		input: "",
+		isResult: false,
 	},
 
 	methods: {
 		clear() {
 			this.input = '';
+			this.isResult = false;
 		},
 		calc() {
-			total = expressionParser(this.input);		
+			if (this.input != "") {
+				total = expressionParser(this.input);
+				this.input = total;
+				this.isResult = true;
+			}
+		},
+		append(value) {
+			if (this.isResult) {
+				this.input = "";
+				this.isResult = false;
+			}
+			this.input += value;
 		}
 	}
 })
@@ -19,31 +32,37 @@ function expressionParser(expression) {
 	let ops = [];
 
 	for (let i=0; i<expression.length; i++) {
+		// Processing when numbers and . come
 		if (!isNaN(expression[i]) || expression[i]==".") {
-			// console.log(`Number: ${expression[i]}`);
 			let numbers = "";
 			while (i<expression.length && !isNaN(expression[i]) || expression[i]==".") {
 				numbers += expression[i];
 				i++;
 			}
 			nums.push(numbers);
-			console.log(nums);
 			i--;
 		}
+		// Processing when an operator comes
 		else {
-			// console.log(`Not Number: ${expression[i]}`);
 			while (ops.length > 0 && getPriority(expression[i]) <= getPriority(ops[ops.length - 1])) {
 				process(nums, ops.pop());
 			}
 			ops.push(expression[i]);
-			console.log(ops);
 		}
 	}
+	
+	// Calculate until ops(stack) is empty
+	while (ops.length > 0) {
+		process(nums, ops.pop());
+	}
+
+	return nums[0];
 }
 
+// Calculation
 function process(nums, op) {
-	let right = parseInt(nums.pop());
-	let left = parseInt(nums.pop());
+	let right = Number(nums.pop());
+	let left = Number(nums.pop());
 	let res = 0;
 
 	if (op == "*") res = left * right;
